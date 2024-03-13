@@ -50,7 +50,7 @@ attbot.on('connect', async (connection) => {
     });
 
     //Logs if someone moves a chunk
-    connection.subscribe(`PlayerMovedChuck`, async message => {
+    connection.subscribe(`PlayerMovedChunk`, async message => {
         const { player, oldChunk, newChunk } = message.data;
 
         console.log(`[A TOWNSHIP TALE] ${player.name}/${player.id} has moved to chunk: ${newChunk}!`);

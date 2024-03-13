@@ -18,6 +18,7 @@ Here's a brief overview of the projects included in this repository:
 - **ATT Starter Bot**: In this project, you can find all the code to make your bot, including code examples.
 - **Blacklist Bot**: This allows you to disable the joining of griefers and hackers into your ATT server.
 - **Tablet Bot**: Moderators can use this for easy moderation purposes inside the ATT server.
+- **Auto Clearlag**: This runs wacky commands every amount of minutes automatically to clear unessacary items.
 
 Feel free to explore each project in more detail by visiting their respective directories.
 

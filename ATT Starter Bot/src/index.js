@@ -20,8 +20,8 @@ attbot.on('connect', async (connection) => {
     connection.subscribe(`PlayerJoined`, async message => {
         const { user, position } = message.data;
 
-        console.log(`[A TOWNSHIP TALE] ${user.name}/${user.id} has joined the server!`);
-        console.log(`[A TOWNSHIP TALE] ${user.name}/${user.id} joining position: ${position}`);
+        console.log(`[A TOWNSHIP TALE] ${user.username}/${user.id} has joined the server!`);
+        console.log(`[A TOWNSHIP TALE] ${user.username}/${user.id} joining position: ${position}`);
 
         connection.send(`player message * "${user.name}/${user.id} has joined the server!" 2`);
 

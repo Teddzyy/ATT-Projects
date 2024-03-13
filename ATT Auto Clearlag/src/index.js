@@ -16,20 +16,17 @@ const items = ["Stone", "Flint", "Coal", "Woodcutwedge"];
 attbot.on('connect', async (connection) => {
     console.log(`[A TOWNSHIP TALE] bot has securely made a connection to ${connection.server.name}`);
 
-    const quest = await attbot.api.getServerInfo(serverId);
+    try {
+        setInterval(() => {
+           
+            items.forEach(item => {
+                connection.send(`wacky destroy-free ${item}`);
+                console.log("[A TOWNSHIP TALE] auto clearlag has been completed");
+            });
+        }, 9000);
+    } catch (error) {
+        console.log(error);
+    }
 
-    if (!quest.is_online) {
-        console.log(`[A TOWNSHIP TALE] server is offline clearlag didnt go through`);
-        return;
-        
-    } else {
-
-    setInterval(() => {
-
-        items.forEach(item => {
-            connection.send(`wacky destoroy-free ${item}`);
-
-        });
-    }, 900000);
-}
+    
 });

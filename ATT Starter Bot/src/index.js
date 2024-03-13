@@ -31,10 +31,10 @@ attbot.on('connect', async (connection) => {
     connection.subscribe(`PlayerLeft`, async message => {
         const { user, position } = message.data;
 
-        console.log(`[A TOWNSHIP TALE] ${user.name}/${user.id} has left the server!`);
-        console.log(`[A TOWNSHIP TALE] ${user.name}/${user.id} leaving position: ${position}`);
+        console.log(`[A TOWNSHIP TALE] ${user.username}/${user.id} has left the server!`);
+        console.log(`[A TOWNSHIP TALE] ${user.username}/${user.id} leaving position: ${position}`);
 
-        connection.send(`player message * "${user.name}/${user.id} has left the server!" 2`);
+        connection.send(`player message * "${user.username}/${user.id} has left the server!" 2`);
 
     });
 
@@ -42,7 +42,7 @@ attbot.on('connect', async (connection) => {
     connection.subscribe(`PlayerKilled`, async message => {
         const { killedPlayer, source } = message.data;
 
-        console.log(`[A TOWNSHIP TALE] ${killedPlayer.name}/${killedPlayer.id} has died!`);
+        console.log(`[A TOWNSHIP TALE] ${killedPlayer.username}/${killedPlayer.id} has died!`);
         console.log(`[A TOWNSHIP TALE] Death Reason: ${source}...`);
 
         connection.send(`player message ${killedPlayer.id} "Next time dont die bozo" 2`);
@@ -53,8 +53,8 @@ attbot.on('connect', async (connection) => {
     connection.subscribe(`PlayerMovedChunk`, async message => {
         const { player, oldChunk, newChunk } = message.data;
 
-        console.log(`[A TOWNSHIP TALE] ${player.name}/${player.id} has moved to chunk: ${newChunk}!`);
-        console.log(`[A TOWNSHIP TALE] ${player.name}/${player.id} has left chunk: ${oldChunk}!`);
+        console.log(`[A TOWNSHIP TALE] ${player.username}/${player.id} has moved to chunk: ${newChunk}!`);
+        console.log(`[A TOWNSHIP TALE] ${player.username}/${player.id} has left chunk: ${oldChunk}!`);
 
         connection.send(`player message ${player.id} "You just walked a whole chunk" 2`);
 
@@ -64,7 +64,7 @@ attbot.on('connect', async (connection) => {
     connection.subscribe(`ObjectKilled`, async message => {
         const { name, killerPlayer } = message.data;
 
-        console.log(`[A TOWNSHIP TALE] ${killerPlayer.name}/${killerPlayer.id} has killed ${name}!`);
+        console.log(`[A TOWNSHIP TALE] ${killerPlayer.username}/${killerPlayer.id} has killed ${name}!`);
         connection.send(`player message ${killerPlayer.id} "How dare you, i had a life!" 2`);
 
     });
@@ -73,7 +73,7 @@ attbot.on('connect', async (connection) => {
     connection.subscribe(`SocialTabletPlayerReported`, async message => {
         const { ReportedBy, ReportedPlayer, Reason } = message.data;
 
-        console.log(`[A TOWNSHIP TALE] ${ReportedPlayer.name} has been reported by ${ReportedBy.name}`);
+        console.log(`[A TOWNSHIP TALE] ${ReportedPlayer.username} has been reported by ${ReportedBy.username}`);
         console.log(`[A TOWNSHIP TALE] reason for report: ${Reason}...`);
 
         connection.send(`player message ${ReportedBy.id} "You have sent a report" 2`);
